@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 public class UserController {
@@ -57,7 +58,11 @@ public class UserController {
     }
 
     @RequestMapping("/user/index")
-    public String dashboard() {
+    public String dashboard(Model model, Principal principal) {
+        String userName = principal.getName();
+        User user = userRepository.getUserByUserName(userName);
+        System.out.println("User post login : " + user);
+        model.addAttribute("user", user);
         return "normal/user_dashboard";
     }
 }
