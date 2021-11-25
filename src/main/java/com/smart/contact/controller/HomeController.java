@@ -18,4 +18,10 @@ public class HomeController {
         model.addAttribute("title", "About - Contact Manager");
         return "about";
     }
+
+    @RequestMapping("/sign-up")
+    public String signUp(Model model) {
+        model.addAttribute("title", "Register - Contact Manager");
+        return "signUp";
+    }
 }
