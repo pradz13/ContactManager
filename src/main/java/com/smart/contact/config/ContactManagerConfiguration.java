@@ -42,7 +42,7 @@ public class ContactManagerConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/**").hasRole("USER")
                 .antMatchers("/**").permitAll()
                 .and()
-                .formLogin().loginPage("/signin")
+                .formLogin().loginPage("/signin").loginProcessingUrl("/dologin").defaultSuccessUrl("/user/index")//.failureUrl("/login-fail")
                 .and()
                 .csrf()
                 .disable();
