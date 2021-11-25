@@ -103,4 +103,19 @@ public class Contact {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "contactId=" + contactId +
+                ", name='" + name + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", work='" + work + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", description='" + description + '\'' +
+                ", user=" + user +
+                '}';
+    }
 }

@@ -14,21 +14,21 @@
             <img style="width: 80px;" src="" th:src="@{/img/register.jpg}" alt=""/>
           </div>
           <h1 class="text-center">Sign Up</h1>
-          <form th:action="@{/do-register}"method="post">
+          <form th:action="@{/do-register}"method="post" th:object="${user}">
             <div class="form-group">
               <label for="name_field">Name</label>
-              <input type="text" class="form-control" id="name_field" aria-describedby="nameHelp" placeholder="Enter name here" required>
+              <input name="name" type="text" class="form-control" id="name_field" aria-describedby="nameHelp" placeholder="Enter name here" required th:value="${user.name}">
             </div>
             <div class="form-group">
               <label for="email_field">Email</label>
-              <input type="email" class="form-control" id="email_field" aria-describedby="emailHelp" placeholder="Enter email here" required>
+              <input name="email" type="email" class="form-control" id="email_field" aria-describedby="emailHelp" placeholder="Enter email here" required th:value="${user.email}">
             </div>
             <div class="form-group">
               <label for="password_field">Email</label>
-              <input type="password" class="form-control" id="password_field" aria-describedby="passwordHelp" placeholder="Enter password here" required>
+              <input name="password" type="password" class="form-control" id="password_field" aria-describedby="passwordHelp" placeholder="Enter password here" required/>
             </div>
             <div class="form-group">
-              <textarea placeholder="Enter something about yourself" rows="10" class="form-control" required></textarea>
+              <textarea name="aboutUser" th:value="${user.aboutUser}" placeholder="Enter something about yourself" rows="10" class="form-control" required></textarea>
             </div>
             <div class="form-group form-check text-center">
               <input type="checkbox" name="agreement" id="agreement" class="form-check-input"/>

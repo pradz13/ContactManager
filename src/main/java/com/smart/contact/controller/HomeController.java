@@ -1,5 +1,6 @@
 package com.smart.contact.controller;
 
+import com.smart.contact.entities.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ public class HomeController {
     @RequestMapping("/sign-up")
     public String signUp(Model model) {
         model.addAttribute("title", "Register - Contact Manager");
+        model.addAttribute("user", new User());
         return "signUp";
     }
 }
