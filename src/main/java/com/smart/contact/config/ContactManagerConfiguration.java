@@ -42,7 +42,7 @@ public class ContactManagerConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/**").hasRole("USER")
                 .antMatchers("/**").permitAll()
                 .and()
-                .formLogin()
+                .formLogin().loginPage("/signin")
                 .and()
                 .csrf()
                 .disable();

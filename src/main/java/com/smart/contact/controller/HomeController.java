@@ -26,4 +26,10 @@ public class HomeController {
         model.addAttribute("user", new User());
         return "signUp";
     }
+
+    @RequestMapping("/signin")
+    public String customLogin(Model model) {
+        model.addAttribute("title", "Login - Contact Manager");
+        return "login";
+    }
 }
