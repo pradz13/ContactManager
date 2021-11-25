@@ -4,6 +4,7 @@ import com.smart.contact.dao.UserRepository;
 import com.smart.contact.entities.User;
 import com.smart.contact.helper.Message;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,6 +22,9 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     @PostMapping("/do-register")
     public String registerUser(@Valid @ModelAttribute("user") User user,
                                BindingResult result,
@@ -36,6 +40,7 @@ public class UserController {
                 model.addAttribute("user", user);
                 return "signUp";
             }
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
             user.setRole("ROLE_USER");
             user.setEnabled(true);
             user.setImageUrl("default.jpeg");
